@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>JavaScript Crossword</title>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Pacifico" />
+        <script src="/Livie_project1/js/sweetalert.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/Livie_project1/css/sweetalert.css">
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.hotkeys.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript" src="crossword.js"></script>
+<script type="text/javascript">
+  var crossw1rd1;
+  //var crossw1rd2;
+  $(document).ready(function() {
+    crossw1rd1 = new Crossw1rd('container1');
+    crossw1rd1.init('puzzle');
+  });
+</script>
+<meta charset="UTF-8">
+</head>
+<body style=" font-family:  'Pacifico',cursive;text-align: center">
+    
+    <div id="first" style="">
+        <h1 style="color:white">Crossword</h1>
+        <div id="container1" style="margin:5% auto;margin-left: 35%"></div>
+<br/>
+<div id="container2"></div>
+    </div>
+</body>
+</html>

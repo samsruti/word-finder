@@ -1,0 +1,568 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+                <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      type="text/css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Pacifico" />
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/stylesheet.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>    
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Pacifico" />
+        <script src="/Livie_project1/js/sweetalert.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/Livie_project1/css/sweetalert.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+ 
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+<script language="JavaScript" type="text/javascript">
+
+var word=new Array("ENLIGHTENING","MAJESTIC","DISRESPECT","SCULPTURE","BLUNTNESS","SECURITY","ADEPT","AWESOME");
+var letter=new Array();
+var newl=new Array();
+var userChoice;
+var i=0;
+var i;
+var actual;
+var res='';
+var count=0;
+window.onload=main;
+function main()
+{
+	scrambleWord();
+	creatWord();
+}
+function scrambleWord()
+{
+ actual=word[i];
+ Temp=word[i].length;
+ newl=word[i].split('');
+ var letter=new Array();
+  for(var HUCKO=0;HUCKO<Temp;HUCKO++)// - Richard Hucko's JavaScript Effects -> www.DynamicScripts.tk
+	{
+	 RHUCKO1=HUCKO-1;
+	  letter[HUCKO]=newl[HUCKO];
+          console.log(letter[HUCKO]+" o "+newl[HUCKO]);
+	}
+        console.log(letter+" before");
+	letter.sort();
+        console.log(letter+" after");
+	word[i]="";
+	for(var HUCKO=0;HUCKO<Temp;HUCKO++)
+	word[i]+=letter[HUCKO];
+}
+function creatWord()
+{
+ for(var x=0;x<word[i].length+2;x++)
+ {
+  RHUCKO1=x-1;
+  a=document.createElement('a');
+	a.id="aid"+x;
+	a.className="scramble";
+	a.innerHTML=word[i].substring(RHUCKO1,RHUCKO1-1);
+	a.href="javascript:append('"+x+"');";
+	document.getElementById('board').appendChild(a);
+ }
+}
+function creatWord2(x)
+{
+  RHUCKO1=x-1;
+  a=document.createElement('a');
+	a.id="aid2"+x;
+	a.className="scramble";
+	a.innerHTML=word[i].substring(RHUCKO1,RHUCKO1-1);
+        
+        console.log(word[i].substring(RHUCKO1,RHUCKO1-1));
+         res +=word[i].substring(RHUCKO1,RHUCKO1-1);
+         console.log(res);
+	a.href="javascript:retract('"+x+"');";
+	document.getElementById('assemble').appendChild(a);
+        if(res.length=== actual.length)
+        {
+            console.log('equal');
+            if(res=== actual)
+            {
+                console.log('correct');
+                document.getElementById('correct').style.display='block';
+            }
+            else
+            {
+                console.log('wrong');
+                document.getElementById('wrong').style.display='block';
+            }
+        }
+
+}
+function append(RHUCKO1)
+{
+  document.getElementById('aid'+RHUCKO1).style.visibility="hidden";
+	//document.getElementById('assemble').innerHTML+=document.getElementById('aid'+RHUCKO1).innerHTML;
+	creatWord2(RHUCKO1);
+}
+function retract(RHUCKO1)
+{
+  document.getElementById('aid'+RHUCKO1).style.visibility="visible";
+	elem=document.getElementById('aid2'+RHUCKO1);
+	document.getElementById('assemble').removeChild(elem);
+}
+function showWord()
+{
+    count--;
+  document.getElementById('theWord').innerHTML=actual;
+}
+
+
+function next()
+{
+    if(i<7)
+    {
+     i++;   
+     document.getElementById('theWord').innerHTML='';
+    console.log("here");
+    if(res===actual)
+    {
+        console.log("here again");
+        count++;
+        
+       //display_image(0);
+       
+    }
+    console.log(count+" "+res+" "+actual);
+    document.getElementById('board').innerHTML='';
+    document.getElementById('assemble').innerHTML='';
+    res='';
+	scrambleWord();
+	creatWord();
+        document.getElementById('correct').style.display='none';
+        document.getElementById('wrong').style.display='none';
+    }
+    else
+    {
+        var per=(count/7)*100;
+        var n = per.toFixed(2);
+        document.getElementById('first1').style.display='block';
+        document.getElementById('first').style.display='none';
+        document.getElementById('score').innerHTML="Your score is "+count+"("+n+"%)";
+        if(count<3)
+        {
+            document.getElementById('sm3').style.display='block';
+        }
+        else if(count>=3 && count<6)
+        {
+            document.getElementById('sm2').style.display='block';
+        }
+        else if(count>=6)
+        {
+            document.getElementById('sm1').style.display='block';
+        }
+        //<img style="margin-right: 50px; padding: 0;" src="img\wrong.jpg"/>;
+        //document.write("wrong");
+    }
+}
+
+</script>
+<style>
+    
+        .spinner {;
+        width: 70px;
+        text-align: center;
+        }
+
+        .spinner > div {
+        width: 18px;
+        height: 18px;
+        background-color: #333;
+        border-radius: 100%;
+        display: inline-block;
+        -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+        }
+        div.container {
+        position: relative;
+        height: 100px;
+        width: 40px;
+        display: inline-block;
+        margin:1px auto;
+        cursor: pointer;
+        }
+        div.container:hover div {
+        border-color: #5ba753;
+        color: #5ba753;
+        animation: jump 0.5s infinite alternate;
+        -o-animation: jump 0.5s infinite alternate;
+        -ms-animation: jump 0.5s infinite alternate;
+        -moz-animation: jump 0.5s infinite alternate;
+        -webkit-animation: jump 0.5s infinite alternate;
+        }
+        div.container div {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        right: 10%;
+        height: 50px;
+        line-height: 30px;
+        text-align: center;
+        width: 50px;
+        border: 3px solid #ccc;
+        color: #ccc;
+        padding: 0 0 8px;
+        border-radius: 50%;
+        margin: 100px auto;
+        font-size: 24px;
+        font-family: "comic sans ms";
+        font-weight: bold;
+	transition: color .25s linear;
+        transition: border-color .25s linear;
+        transform: rotate(90deg);
+        animation: jump 0.5s infinite alternate;
+	-o-transition: color .25s linear;
+        -o-transition: border-color .25s linear;
+        -o-transform: rotate(90deg);
+        -o-animation: jump 0.5s infinite alternate;
+	-ms-transition: color .25s linear;
+        -ms-transition: border-color .25s linear;
+        -ms-transform: rotate(90deg);
+        -ms-animation: jump 0.5s infinite alternate;
+	-moz-transition: color .25s linear;
+        -moz-transition: border-color .25s linear;
+        -moz-transform: rotate(90deg);
+        -moz-animation: jump 0.5s infinite alternate;
+	-webkit-transition: color .25s linear;
+        -webkit-transition: border-color .25s linear;
+        -webkit-transform: rotate(90deg);
+        -webkit-animation: jump 0.5s infinite alternate;
+        }
+        div.container div.one {
+        animation-delay: 0s;
+        -o-animation-delay: 0s;
+        -ms-animation-delay: 0s;
+        -moz-animation-delay: 0s;
+        -webkit-animation-delay: 0s;
+        }
+        @keyframes jump {
+        0% {
+		top: -40px;
+        -moz-transform: scale(1,0.7) rotate(90deg);
+          }
+        30% {-moz-transform: scale(1,1) rotate(90deg);}
+        100% {top: -70px;}
+        }
+
+        @-o-keyframes jump {
+        0%{
+		top: -40px;
+        -moz-transform: scale(1,0.7) rotate(90deg);
+        }
+        30% {-moz-transform: scale(1,1) rotate(90deg);}
+        100% {top: -70px;}
+        }
+
+        @-ms-keyframes jump {
+        0% {
+		top: -40px;
+        -moz-transform: scale(1,0.7) rotate(90deg);
+        }
+        30% {-moz-transform: scale(1,1) rotate(90deg);}
+        100% {top: -70px;}
+        }
+
+        @-moz-keyframes jump {
+        0% {
+		top: -40px;
+                -moz-transform: scale(1,0.7) rotate(90deg);
+            }
+        30% {-moz-transform: scale(1,1) rotate(90deg);}
+        100% {top: -70px;}
+        }
+
+        @-webkit-keyframes jump {
+        0% {
+        top: -40px;
+        -webkit-transform: scale(1,0.7) rotate(90deg);
+        }
+        30% {-webkit-transform: scale(1,1) rotate(90deg);}
+        100% {top: -70px;}
+        }
+
+        @keyframes shake {
+        0% {padding: 8px 0 0;}
+        100% {padding: 0 0 8px; line-height: 14px;}
+        }
+
+        @-o-keyframes shake {
+          0% {padding: 8px 0 0;}
+          100% {padding: 0 0 8px; line-height: 14px;}
+        }
+
+        @-ms-keyframes shake {
+        0% {padding: 8px 0 0;}
+        100% {padding: 0 0 8px; line-height: 14px;}
+        }
+
+        @-moz-keyframes shake {
+        0% {padding: 8px 0 0;}
+        100% {padding: 0 0 8px; line-height: 14px;}
+        }
+
+        @-webkit-keyframes shake {
+        0% {padding: 8px 0 0;}
+        100% {padding: 0 0 8px; line-height: 14px;}
+        }
+        .spinner .bounce1 {
+         -webkit-animation-delay: -0.32s;
+        }
+
+        .spinner .bounce2 {
+        -webkit-animation-delay: -0.16s;
+        }
+.spinner .bounce3 {
+  -webkit-animation-delay: -0.08s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% { 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}  
+    #first:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  
+  display: block;
+  
+  background-image: url('img/web_design_desk2.jpg');
+  width: 500vh;
+  height: 100vh;
+  
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+#first {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#back{
+     margin: 60px auto;z-index:999;
+     box-shadow:10px 10px 10px 10px  #262626;
+}
+ #first1:before {
+     
+  font-family:"Baskerville";
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  
+  display: block;
+  
+  background-image: url('img/web_design_desk2.jpg');
+  width: 500vh;
+  height: 100vh;
+  
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+#first1 {
+    
+  font-family:"Baskerville";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#back1{
+     margin: 60px auto;z-index:999;
+     box-shadow:10px 10px 10px 10px  #262626;
+}
+    div#myToolTip {
+            margin-top:170px;
+            margin-bottom:10px;
+            margin-right:25px;
+            margin-left:25px;
+        }
+        
+        div button {
+            margin-bottom:10px;
+        }
+body {
+		  text-align:center;
+		 }
+                 .swal-wide{
+    width:150px !important;
+    height: 150px;
+}
+a.scramble {
+					   color:white;
+						 font-weight:bold;
+						 font-size:30px;
+						 position:relative;
+					 }
+span#assemble {
+						 font-weight:bold;
+						 font-size:30px;
+						 position:relative;
+						 }
+span#theWord {
+						 color:white;
+						 font-weight:bold;
+						 font-size:30px;
+						 position:relative;
+						 }
+a:hover {
+				  background-color:black;
+					color:white;
+				}
+
+span#dispaly_here{
+                    width:100px;
+                    height:100px;
+                    margin-bottom:150px;
+}
+</style>
+
+</head>
+<body style=" " id="body" class="">
+
+  <br />
+ 
+  <div id="first1"  style=" display: none">
+       <h1 style=" font-family: 'Pacifico',cursive;color:white">Jumbled words</h1>
+  <div style="background-color: #000;width: 300px;height: 330px;margin: 160px auto;padding: 20px;border-radius: 5px;" id="back1">
+      <h2>GAME OVER</h2>
+                <div class="container" style="display:none" id="sm1">
+                        <div class="one" style="size:40px">:) </div>
+                </div>
+        <div class="container" style="display:none" id="sm2">
+            <div class="one" style="size:40px">:|</div>
+                </div>
+        <div class="container" style="display:none" id="sm3">
+                        <div class="one" style="size:40px">:(</div>
+                </div>
+      <br/>
+        <h3 id="score" style=";margin-top: -10px;margin-left: 14px;font-family:  'Pacifico'"></h3>
+        <button  class="btn btn-default" type="button" value="PLAYAGAIN" onclick="window.open('index.html','_self')" style=" margin-left: 6px;" >PLAY AGAIN</button>
+	
+  </div>
+  </div>
+  <div id="first" style="">
+       <h1 style=" font-family: 'Pacifico',cursive;color:white">Jumbled words</h1>
+  <div style="background-color: #000;width: 300px;height: 450px;margin: 80px auto;padding: 20px;border-radius: 5px;" id="back">
+      <span id="board" style=" color: white"></span>
+	<br /><br />
+	<span id="assemble"></span>
+	<br />
+	<br />
+		 <a href="#" class=" glyphicon glyphicon-ok" style="color: green;display: none;font-size: 40px;" id="correct"></a>
+                <a href="#" class=" glyphicon glyphicon-remove" style="color: red;display: none;font-size: 40px" id="wrong"></a>
+	<form>
+            <div id="myToolTip">
+                <span id="theWord"></span>
+                
+            </div>           
+            <input type="button" class="btn btn-danger" value="Show Word" id="tooltip2" title="Your Score will not be counted if you see the word" onclick="showWord();"/>
+            <p class="text" style="visibility:hidden">Your Score will not be counted if you see the word</p>
+   <b style="visibility:hidden">__</b>
+           <button class="btn btn-success" type="button" value="NEXT" onclick="next();" style=" width: 110px" >NEXT</button>
+           <button  class="btn btn-default" type="button" value="PLAYAGAIN" onclick="window.open('index.html','_self')" >PLAY AGAIN</button>
+	<div style="text-align:center;color:black;background-color:transparent;display:none;z-index:1;text-decoration:underline;"></div>
+    
+	</form>
+               
+  </div>
+  </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script src="js/main.js"></script>
+
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+         <script>
+                  //alert function
+       $(document).ready(function () {
+        $("#tooltip2").on('click',function () { 
+        swal({
+        title: "No Points will be awarded if you viw the word",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "CONTINUE",
+        cancelButtonText: "CANCEL",
+        closeOnConfirm: true,
+        closeOnCancel: false
+        },
+        function(isConfirm){
+        if (isConfirm) {
+            showWord();
+        } else {
+            swal("Cancelled", "That's the spirit", "error");
+        }
+        });
+        });
+    });
+    </script>
+    </body>
+</html>

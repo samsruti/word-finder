@@ -1,0 +1,164 @@
+ #first:before {
+     overflow-y: scroll;
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  
+  display: block;
+  
+  background-image: url('img/web_design_desk2.jpg');
+  width: 500vh;
+  height: 100vh;
+  
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+#first {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+crossw1rd {
+  border: solid 1px #eee;
+  padding:10px;
+  z-index:999;
+  margin: 10% auto;
+}
+
+.grid {
+  border-top: 1px solid #aaa;
+  border-left: 1px solid #aaa;
+}
+
+.row {
+  clear: left;
+  white-space: nowrap;
+}
+
+.row > div {
+  float: left;
+  text-align: center;
+  height: 27px;
+  width: 27px;
+  border-bottom: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  background-color: #777777;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+
+.row > div.word {
+  background-color: #777777;
+}
+.row > div.word.active {
+  background-color: #ededed;
+}
+
+.num {
+  font-family: arial;
+  font-size: 8px;
+  float:left;
+  position: relative;
+  left: 1px;
+  top: 1px;
+  font-weight: 900;
+}
+
+.letter {
+  font-size: 20px;
+  position: relative;
+  top: 4px;
+  white-space: normal;
+}
+.correct .letter {
+  color: green;
+}
+.incorrect .letter {
+  color: red;
+}
+ 
+.row > div.blank {
+  background-color: #0f0f0f;
+}
+
+.clues {
+  float: right;
+}
+.clues .across, .clues .down {
+  background-color: #eee;
+  margin:4px;
+}
+.clues h4 {
+  font-size: 25px;
+  color: white;
+  margin:0;
+}
+.clues div {
+  margin: 4px 0;
+  padding: 4px;
+  overflow: auto;
+}
+.clues p {
+  font-size: 15px;
+  margin: 0;
+  cursor: default;
+  position: relative;
+}
+.active_clue {
+  background-color: #FCFCD6;
+}
+
+.controls {
+  margin: 10px 0;
+}
+
+/* CSSButtonGenerator.com */
+.controls button {
+        color: #fff;
+background-color: #5cb85c;
+border-color: #4cae4c;
+margin-left: -32%;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	display:inline-block;
+	font-size:12px;
+	font-weight:bold;
+        width: 90px;
+        height: 30px;
+	padding:4px 8px;
+	text-decoration:none;
+}
+.controls button:hover {
+    
+color: #fff;
+background-color: #d9534f;
+border-color: #d43f3a;
+}
+.controls button:active {
+	position:relative;
+	top:1px;
+}
+    ::-webkit-scrollbar {
+        width: 15px;
+        height: 0;
+    }
+    ::-webkit-scrollbar-track {
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #777777;
+        border: 2px solid transparent;
+        border-radius: 9px;
+        background-clip: content-box;
+    }
